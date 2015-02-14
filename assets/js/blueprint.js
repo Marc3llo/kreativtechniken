@@ -56,7 +56,10 @@ $(document).ready(function(){
 					//console.log('retrievedObject: ', JSON.parse(retrievedObject));
 					window.location.reload();
 				} else {
+<<<<<<< HEAD
 					console.log('nope');
+=======
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 					//$('#signinform').effect( "shake", { "times": 2, "distance": 10, "duration": 300, "easing": "easeInSine" });
 				}
 			});
@@ -77,7 +80,7 @@ $(document).ready(function(){
 			$('body').addClass('signedin');
 		}
 	});
-	
+
 	// sign out by clearing localStorage
 	$(document).on('click', '#signout', function(){
 		console.log(this);
@@ -85,4 +88,3 @@ $(document).ready(function(){
 		window.location.reload();
 	});
 });
-  

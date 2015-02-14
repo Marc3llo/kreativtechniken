@@ -12,19 +12,61 @@ $(document).ready(function(){
 
 	var winWidth = $(window).width();
 
+<<<<<<< HEAD
 	$('.cb .details').each(function(){
 		$(this).css('width', winWidth);
+=======
+	$('.thumb .glyphicon').on('load', function(){
+        $(this).css('top', '50% !important');
+	})
+
+	//var counter = 0;
+	//function start() {
+	//	if(counter < 42) {
+    //        counter++;
+    //        console.log(counter);
+	//		$('.carousel .carousel-inner').animate({left:"-=200"}, 8000, 'linear', start);
+	//	};
+	//}
+	//start();
+	//
+	//$( ".carousel" ).mouseenter(function() {
+	//  var myDiv = $( "div" );
+	//  myDiv.clearQueue();
+	//  myDiv.stop();
+	//});
+	//$( ".carousel" ).mouseleave(function() {
+	//  start();
+	//});
+
+	$(".navbar li a[href^='#'], a.btn-buy[href^='#']").on('click', function(e) {
+   		e.preventDefault();
+   		var scrollto = ($(this.hash).offset().top - 50);
+   		$('html, body').animate({ scrollTop: scrollto }, 400);
+
+   		// edit: Opera requires the "html" elm. animated
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 	});
 
 
 	// trigger the click on a item
 	function morph(item) {
 
+<<<<<<< HEAD
 		var pos = item.offset(),
 			posY = pos.top - $(window).scrollTop();
 			w = item.outerWidth(),
 			h = item.outerHeight(),
 			close = item.find('.close');
+=======
+	$('.btn-process').click(function(){
+		var thisbtn = $(this);
+
+		if (thisbtn.hasClass('end')) {
+			thisbtn.removeClass('end', 'start');
+		} else {
+			thisbtn.addClass('start');
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 
 		console.log(close);
 
@@ -42,11 +84,16 @@ $(document).ready(function(){
 			item.css({'width': w, 'top': posY, 'left': pos.left, 'position': 'fixed', 'z-index': '9999'});
 		}
 
+<<<<<<< HEAD
 		setTimeout(function() {
 			item.css({'max-width': '100%','width':'100%', 'height':'100%', 'top': '0px', 'left': '0px'});
 			//$('.backdrop').show();
 		}, 200);
 
+=======
+	$('#submit .btn-process').click(function(){
+		$(this).addClass('start');
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 		setTimeout(function(){
 			item.addClass('show');
 			close.show();
@@ -57,6 +104,7 @@ $(document).ready(function(){
 		}, 800);
 	};
 
+<<<<<<< HEAD
 	function closeDetail(item){
 		var parent = item.parent();
 			pos = parent.offset(),
@@ -64,6 +112,14 @@ $(document).ready(function(){
 			w = parent.width(),
 			h = parent.height(),
 			close = item.find('.close');
+=======
+	function upTotal() {
+		var pgross = $('span#pgross').text(),
+			pklein = $('span#pklein').text(),
+			ptotal = parseInt(pgross) + parseInt(pklein);
+		$('span#total').html('CHF ' + ptotal + '.-')
+	}
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 
 		item.removeClass('show');
 		close.removeClass('in');
@@ -134,9 +190,19 @@ $(document).ready(function(){
 
 		childs.removeClass('active');
 
+<<<<<<< HEAD
 		childs.each(function(){
 			$('body').removeClass(''+ $(this).data('name') +'');
 		})
+=======
+  		if (oldValue > 0) {
+      		var newVal = parseFloat(oldValue) - 1;
+    	} else {
+      		newVal = 0;
+    	}
+
+		choice.val(newVal);
+>>>>>>> 1f34f9ceaf917133030ddf0723edf0fce9c5648b
 
 		$('body').addClass(''+ filter.data('name') +'')
 		filter.addClass('active');

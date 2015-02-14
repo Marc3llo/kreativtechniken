@@ -215,3 +215,7 @@ a.reset {
         border-bottom-color: transparentize($brand-danger, .7) !important;
     }
 }
+
+.btn-process {
+    @include btn-process;
+}
