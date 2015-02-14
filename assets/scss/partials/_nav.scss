@@ -1,5 +1,5 @@
 h2.brand {
-    margin: 10px 0px 0px;
+    margin: 10px 0px 0px 15px;
 
     img, span {
         float: left;
@@ -11,13 +11,28 @@ h2.brand {
         border-radius:8px;
         border-radius:8px;
         //background: $brand-primary;
-        margin: -4px 9px 0px 0px;
+        margin: -4px 9px 5px 0px;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+        font-size: 2.1rem;
+        margin-top: 12px;
+        color: rgb(200,200,200) !important;
     }
 }
 .navbar {
-    border-bottom: 1px solid $text-color;
+    border-bottom: 1px solid rgba(100,100,100,.5);
     margin: 0;
     background: $body-bg;
+    padding-bottom: 8px;
+}
+
+.navbar-header {
+    margin-bottom: 27px;
+
+    @media screen and (max-width: $screen-xs) {
+        margin-bottom: 10px;
+    }
 }
 .nav li a { border: 1px solid transparent; padding: 20px; font-size: 1.7rem }
 .nav li.active a { background: $brand-primary; color: white; border: 1px solid white; span.glyphicon { margin-right: 5px;} }
@@ -29,4 +44,23 @@ h2.brand {
         border-top-width: 0px !important;
         border-bottom-width: 0px !important;
     }
+}
+
+.navbar-toggle .icon-bar {
+    background-color: rgb(200,200,200);
+}
+
+.navbar-toggle {
+    margin: -5px 0px;
+
+    span {
+        color: rgb(200,200,200);
+        font-size: 1.3em;
+        padding: 8px;
+    }
+}
+
+.navbar-collapse {
+    max-height: 100%;
+    padding-bottom: 12px;
 }

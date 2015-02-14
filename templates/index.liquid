@@ -1,27 +1,22 @@
 {% layout "layout" %}
-{% block title %}Blueprint | Interaction Design Framework{% endblock %}
+{% block title %}Vodka Chick im Latex Kleid • App{% endblock %}
 
 {% block teaser %}
- {% include "fullcarousel" %}
+
 {% endblock %}
 
 {% block content %}
 
 <div class="row content">
-    <div class="col-md-4">
-        {% include "signin" %}
-        {% include "signout" %}
-
-        {% include "processbutton" %}
+    <div class="col-sm-4 col-md-3">
+        {% include "navbar" %}
     </div>
-    <div class="col-md-8">
+    <div class="col-sm-8 col-md-9">
         {% include "gallery" %}
-        <div class="isout well">
+        <!-- <div class="isout well">
             <p>You're not logged in</p>
-        </div>
+        </div> -->
     </div>
-</div>
-<div class="isin">
- {% include "simplecheckout" %}
+
 </div>
 {% endblock %}

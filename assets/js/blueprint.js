@@ -7,7 +7,7 @@ All the Blueprint Magic
 
 // SETTINGS!
 var showgrid = false;
-var pixelgrid = true;
+var pixelgrid = false;
 
 
 // Edit below only if you know what you're doing.
@@ -56,7 +56,8 @@ $(document).ready(function(){
 					//console.log('retrievedObject: ', JSON.parse(retrievedObject));
 					window.location.reload();
 				} else {
-					$('#signinform').effect( "shake", { "times": 2, "distance": 10, "duration": 300, "easing": "easeInSine" });
+					console.log('nope');
+					//$('#signinform').effect( "shake", { "times": 2, "distance": 10, "duration": 300, "easing": "easeInSine" });
 				}
 			});
 		});

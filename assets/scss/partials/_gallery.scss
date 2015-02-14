@@ -1,3 +1,15 @@
+body {
+    background: rgb(60,60,60)
+}
+
+h2.brand, h5 {
+    color: rgb(240,240,240);
+}
+
+h5 {
+    font-weight: 300;
+}
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -8,7 +20,7 @@
     display: none;
     overflow: auto;
     overflow-y: scroll;
-    @include transition(.5s cubic-bezier(.52,-0.11,.54,1.17) all);
+    @include transition(.5s $ease-in-out-sine all);
     background-color: transparentize($body-bg, .3);
 
     &.in {
@@ -41,25 +53,184 @@
 }
 
 #gallery, .imagecont {
-    .thumbnail, .thumbnail img {
-        background-size: cover;
-        height: 200px;
-        width: 100%;
 
-        p {
-            position: absolute;
-            top: 10px;
-            margin-left: 15px;
+    .item {
+        padding: 10px;
+        height: 190px;
+
+        @media screen and (max-width: $screen-xs) {
+            padding: 10px 10px 0px 10px;
+            height: 80px;
         }
     }
 
-    .thumbnail, .cellobox {
-        background: transparentize($body-bg,.6);
-        background-color: transparentize(darken($body-bg, 20%),.6);
+    .cb {
+        cursor: pointer;
+        background-size: cover;
+        height: 170px;
+        width: 100%;
+        margin-bottom: 0px;
+        border-radius: 0px;
+        border: none;
+        padding: 10px 0 20px 20px;
+        @include transition(.5s $ease-in-out-quint all);
+        border-left: 6px solid $brand-primary;
+        overflow: hidden;
+
+        @media screen and (max-width: $screen-xs) {
+            height: 70px;
+            padding: 0px 0 20px 20px;
+            min-width: 300px;
+        }
+
+        h2, h3 {
+            font-weight: 200;
+        }
+
+        h4 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            white-space: nowrap;
+            font-size: 2.5rem;
+            padding-bottom: 5px;
+            @include transition(.4s $ease-in-out-quint all);
+            border-bottom: 1px solid rgb(60,60,60);
+
+            @media screen and (max-width: $screen-xs) {
+                font-size: 2rem;
+            }
+        }
+
+        div.details {
+            width: 100%;
+            opacity: 0;
+            @include transition(.4s $ease-in-out-quint all);
+            padding: 20px 50px;
+
+            @media screen and (max-width: $screen-xs) {
+                padding: 20px 20px 10px 0px;
+            }
+        }
+
+        p, ul, ol {
+            font-size: 1.5rem;
+            font-weight: 200;
+
+            ol {
+                list-style: lower-latin;
+                padding-left: 20px;
+                margin: 5px 0 10px;
+            }
+
+            @media screen and (max-width: $screen-xs) {
+                font-size: 1.2rem;
+            }
+            //letter-spacing: 1px;
+        }
+
+        ul, ol {
+            font-size: 1.4rem;
+        }
+
+        ul {
+            padding-left: 0px;
+            list-style-type: circle;
+
+            @media screen and (max-width: $screen-xs) {
+                padding-left: 20px;
+            }
+        }
+
+        ol {
+            padding-left: 30px;
+        }
+
+        h2, p {
+            color: rgba(70,70,70,1);
+        }
+
+        .close {
+            display: none;
+            margin: -10px 0;
+            padding: 37px 40px;
+            border-bottom: none;
+            opacity: .8 !important;
+            @include transform(translateY(-110px));
+            @include transition(.3s $ease-in-out-quint all !important);
+
+            @media screen and (max-width: $screen-xs) {
+                padding: 32px 23px;
+
+                img {
+                    width: 35px;
+                }
+            }
+
+            &.in {
+                opacity: .8 !important;
+                @include transform(translateY(0px));
+            }
+
+            &:hover {
+                opacity: 1 !important;
+            }
+        }
+
+        &.show {
+            cursor: default;
+            border-left-width: 15px;
+            overflow-y: scroll;
+
+            @media screen and (max-width: $screen-xs) {
+                border-left-width: 8px;
+            }
+
+            div.details {
+                opacity: 1;
+            }
+
+            h2 {
+                margin-top: 50px;
+                padding-bottom: 25px;
+                font-size: 4.5rem;
+                margin-left: 50px;
+                font-weight: 100;
+
+                @media screen and (max-width: $screen-xs) {
+                    font-size: 2.3rem;
+                    margin-top: 27px;
+                    margin-left: 0px;
+                }
+            }
+        }
+
+        &.active {
+            box-shadow: 0px 2px 8px 0px rgba(0,0,0,.2);
+            background-color: rgba(240,240,240,.95) !important;
+        }
+    }
+
+    .item.assoziative .cb {
+        border-left-color: $brand-success;
+    }
+
+    .item.perspective .cb {
+        border-left-color: $brand-warning;
+    }
+
+    .cb, .cellobox {
+        background-color: rgba(230,230,230,1);
 
         &:hover {
-            background-color: rgba(255,255,255,.3);
-            border-color: white;
+            background-color: rgba(240,240,240,1);
+            //border-color: white;
         }
 
         .glyphicon {
@@ -78,7 +249,7 @@
         background: white;
 
         &:hover {
-            background-color: rgba(255,255,255,.8);
+            background-color: rgba(255,255,255,1);
         }
 
         .glyphicon {
@@ -99,5 +270,208 @@
 .imagecont {
     .thumbnail:hover {
         background-color: transparentize($brand-info,.6);
+    }
+}
+
+
+.item {
+    opacity: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    @include transition(.7s .0s $ease-in-out-quint all);
+}
+
+$filters: me du ou go vo ex mo kn mi pr;
+
+@each $filter in $filters {
+  body.#{$filter} {
+    #gallery .item.#{$filter}1, #gallery .item.#{$filter}2, #gallery .item.#{$filter}3 {
+        opacity: 1;
+        @include transition( .7s 0s $ease-in-out-quint all);
+    }
+  }
+
+  body.#{$filter}1 {
+    #gallery .item.#{$filter}1 {
+        opacity: 1;
+        @include transition( .7s 0s $ease-in-out-quint all);
+    }
+  }
+
+  body.#{$filter}2 {
+    #gallery .item.#{$filter}2 {
+        opacity: 1;
+        @include transition( .7s 0s $ease-in-out-quint all);
+    }
+  }
+
+  body.#{$filter}3 {
+    #gallery .item.#{$filter}3 {
+        opacity: 1;
+        @include transition(.7s 0s $ease-in-out-quint opacity);
+    }
+  }
+}
+
+@each $filter in $filters {
+  body.#{$filter}1 {
+    #gallery .item.#{$filter}2:not(.#{$filter}1), #gallery .item.#{$filter}3:not(.#{$filter}1) {
+        opacity: 0;
+        width: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        @include transition(.7s 0s $ease-in-out-quint all);
+    }
+  }
+
+  body.#{$filter}2 {
+    #gallery .item.#{$filter}1:not(.#{$filter}2), #gallery .item.#{$filter}3:not(.#{$filter}2) {
+        opacity: 0;
+        width: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        @include transition(.7s 0s $ease-in-out-quint all);
+    }
+  }
+
+  body.#{$filter}3:not(.#{$filter}1):not(.#{$filter}2) {
+    #gallery .item.#{$filter}2:not(.#{$filter}3), #gallery .item.#{$filter}1:not(.#{$filter}3) {
+        opacity: 0;
+        width: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        @include transition(.7s 0s $ease-in-out-quint all);
+    }
+  }
+}
+
+$categories: assoziative perspective list;
+
+$category_colors: (assoziative $brand-success) (perspective, $brand-warning) (list, $brand-primary);
+
+@each $category in $categories {
+  #gallery .item.#{$category} {
+    opacity: 1;
+    @include transition( .7s 0s $ease-in-out-quint all);
+  }
+
+  body.#{$category} {
+    #gallery .item.#{$category} {
+        opacity: 0;
+        width: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        @include transition(.7s .0s $ease-in-out-quint all);
+    }
+  }
+}
+
+.filter-group {
+
+    .btn {
+        background: transparent;
+        border-color: $faded-white;
+        color: $faded-white;
+        @include box-shadow(none !important);
+        @include transition(.5s $ease-in-out-quint all);
+        font-weight: 200;
+
+        &.active {
+            background-color: $faded-white;
+            color: rgb(60,60,60);
+            font-weight: 300;
+        }
+    }
+
+    &.btn-group-justified {
+
+        .btn {
+            border-right: none;
+        }
+
+        .btn:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .btn:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-right: 1px solid $faded-white;
+        }
+    }
+
+    &.categories {
+        width: 100%;
+        padding-left: 0px !important;
+        list-style-type: none;
+
+        li {
+            display: block;
+            margin-bottom: 12px;
+
+             a {
+                color: $faded-white;
+                border-bottom: none !important;
+                font-size: 1.1em;
+            }
+        }
+
+        .check {
+            display: inline-block;
+            width: 30px; height: 30px;
+            padding: 3px 5px;
+            border: 2px solid $faded-white;
+            border-radius: 5px;
+            margin-bottom: -9px;
+            margin-right: 10px;
+            @include transition(.5s $ease-in-out-quad all);
+
+            span.glyphicon-ok {
+                display: inline-block;
+            }
+        }
+
+        li.active .check {
+            span {
+                color: rgb(60,60,60) !important;
+                //@include transition(.5s $ease-in-out-quad color);
+            }
+
+            span.glyphicon-remove {
+                display: none;
+            }
+
+            span.glyphicon-ok {
+                display: inline-block !important;
+            }
+        }
+
+        @each $category in $category_colors {
+            $type: nth($category, 1);
+            $colour: nth($category, 2);
+
+            li.#{$type} {
+                .check {
+                    // @include radial-gradient(rgb(60,60,60) 5%, $colour 5%, $fallback: rgb(60,60,60));
+                    // background-position: center center;
+                    // background-repeat: no-repeat;
+                    // background-size: 2000%;
+
+                    @include box-shadow(inset 0px 0px 0px 0px $colour);
+                    border-color: $colour;
+
+                    span {
+                        color: rgb(60,60,60); // $brand-success;
+                    }
+                }
+
+                &.active .check {
+                    // background-size: 100%;
+                    @include box-shadow(inset 0px -30px 0px 0px $colour);
+                    color: rgb(60,60,60);
+                }
+            }
+        }
     }
 }

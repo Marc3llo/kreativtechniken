@@ -1,51 +1,197 @@
 $(document).ready(function(){
-	$('.carousel').carousel({
-		interval: 7000,
-		pause: "hover"
-	});
+	// $('.carousel').carousel({
+	// 	interval: 7000,
+	// 	pause: "hover"
+	// });
 
-	$('#popcvc').popover({
-		trigger: 'hover'
-	});
+	options = {
+	   trigger : 'hover',
+	}
 
-	$('.thumb .glyphicon').on('load', function(){
-        $(this).css('top', '50% !important');
-	})
+  	$('[rel="popover"]').popover(options);
 
-	//var counter = 0;
-	//function start() {
-	//	if(counter < 42) {
-    //        counter++;
-    //        console.log(counter);
-	//		$('.carousel .carousel-inner').animate({left:"-=200"}, 8000, 'linear', start);
-	//	};
-	//}
-	//start();
-	// 
-	//$( ".carousel" ).mouseenter(function() {
-	//  var myDiv = $( "div" );
-	//  myDiv.clearQueue();
-	//  myDiv.stop();
-	//});
-	//$( ".carousel" ).mouseleave(function() {
-	//  start();
-	//});
+	var winWidth = $(window).width();
 
-	$(".navbar li a[href^='#'], a.btn-buy[href^='#']").on('click', function(e) {
-   		e.preventDefault();
-   		var scrollto = ($(this.hash).offset().top - 50);
-   		$('html, body').animate({ scrollTop: scrollto }, 400);
-
-   		// edit: Opera requires the "html" elm. animated
+	$('.cb .details').each(function(){
+		$(this).css('width', winWidth);
 	});
 
 
-	$('#submit a.btn').attr('disabled', 'disabled').addClass('pull-right');
-	$('#submit a.btn .default').text('Bestellung aufgeben');
+	// trigger the click on a item
+	function morph(item) {
+
+		var pos = item.offset(),
+			posY = pos.top - $(window).scrollTop();
+			w = item.outerWidth(),
+			h = item.outerHeight(),
+			close = item.find('.close');
+
+		console.log(close);
+
+		item.addClass('active');
+		item.css('max-width', w);
+
+		if($('html').hasClass('touch')) {
+			//if (eventType === 'touchstart'){
+            x = item.pageX;
+            y = item.pageY;
+        	//}
+
+			item.css({'width': '320px', 'top': y, 'left': x, 'position': 'fixed', 'z-index': '9999'});
+		} else {
+			item.css({'width': w, 'top': posY, 'left': pos.left, 'position': 'fixed', 'z-index': '9999'});
+		}
+
+		setTimeout(function() {
+			item.css({'max-width': '100%','width':'100%', 'height':'100%', 'top': '0px', 'left': '0px'});
+			//$('.backdrop').show();
+		}, 200);
+
+		setTimeout(function(){
+			item.addClass('show');
+			close.show();
+		}, 700);
+
+		setTimeout(function(){
+			close.addClass('in');
+		}, 800);
+	};
+
+	function closeDetail(item){
+		var parent = item.parent();
+			pos = parent.offset(),
+			posY = pos.top - $(window).scrollTop();
+			w = parent.width(),
+			h = parent.height(),
+			close = item.find('.close');
+
+		item.removeClass('show');
+		close.removeClass('in');
+
+		setTimeout(function(){
+			item.css({'width': w, 'height': h, 'top': posY + 10, 'left': pos.left + 10, 'position': 'fixed', 'z-index': '9999'});
+		}, 400);
+
+		setTimeout(function(){
+			close.hide();
+			//$('.backdrop').hide();
+		}, 800);
+
+		setTimeout(function() {
+			item.removeAttr('style');
+			item.removeClass('active');
+		}, 1000);
+	};
+
+	$('.add-toggle').on('click', function () {
+		var t = $(this);
+		$('.additional').toggleClass('in');
+		t.toggleClass('in');
+	});
+
+	$('body').on('click', '.cb', function(e){
+		var item = $(this);
+		if (item.hasClass('active')) {
+
+		} else {
+			e.preventDefault();
+			morph(item);
+		}
+	});
+
+	$('body').on('click', '.active.cb .close', function(e){
+		var item = $(this).parent();
+		closeDetail(item);
+	});
+
+	//Message
+
+	function notification() {
+
+		$('.notification').hide();
+
+		setTimeout(function(){
+			var totalWidth = 0;
+
+			$('.item').each(function(index) {
+			    totalWidth += parseInt($(this).width());
+			});
+
+			if (totalWidth < 20) {
+				$('.notification').show();
+			} else {
+				$('.notification').hide();
+			}
+		}, 800);
+	}
+
+	//Filter
+
+	$('.filter').on('click', function(){
+		var filter = $(this),
+			group = filter.parent().attr('id')
+			childs = $('#'+ group +'').children();
+
+		childs.removeClass('active');
+
+		childs.each(function(){
+			$('body').removeClass(''+ $(this).data('name') +'');
+		})
+
+		$('body').addClass(''+ filter.data('name') +'')
+		filter.addClass('active');
+
+		notification();
+	});
+
+
+	$('.category').click(function(e){
+		var category = $(this),
+			id = category.attr('id')
+
+		console.log(id)
+
+		category.toggleClass('active');
+		$('body').toggleClass(''+ id +'');
+		e.stopPropagation();
+
+		notification();
+	});
+
+	$('.reset').on('click', function(e){
+		e.preventDefault();
+		$('body').removeAttr('class');
+		$('body').addClass('me du ou go vo ex mo kn mi pr');
+		$('.category').each(function(){
+			$(this).addClass('active');
+		});
+
+		$('.btn-group.filter-group').each(function(){
+			$(this).children().removeClass('active');
+			$(this).children().first().addClass('active');
+		});
+
+		notification();
+	});
+
+
+
+
+	// $(".navbar li a[href^='#'], a.btn-buy[href^='#']").on('click', function(e) {
+ //   		e.preventDefault();
+ //   		var scrollto = ($(this.hash).offset().top - 50);
+ //   		$('html, body').animate({ scrollTop: scrollto }, 400);
+
+ //   		// edit: Opera requires the "html" elm. animated
+	// });
+
+
+	// $('#submit a.btn').attr('disabled', 'disabled').addClass('pull-right');
+	// $('#submit a.btn .default').text('Bestellung aufgeben');
 
 	$('.btn.process').click(function(){
 		var thisbtn = $(this);
-		
+
 		if (thisbtn.hasClass('end')) {
 			thisbtn.removeClass('end', 'start');
 		} else {
@@ -56,166 +202,5 @@ $(document).ready(function(){
 				thisbtn.removeClass('start');
 			}, 3000);
 		}
-	});
-
-	$('#submit .btn.process').click(function(){
-		$(this).addClass('start');
-		setTimeout(function(){
-			$('#details').css({'opacity': '0', 'z-index': '10'});
-			$('#confirmation').css({'opacity': '1', 'z-index': '20'});
-		}, 3000);
-	});
-
-	$('#new').click(function(){
-		window.location.reload();
-	});
-
-	function upTotal() {
-		var pgross = $('span#pgross').text(),
-			pklein = $('span#pklein').text(),
-			ptotal = parseInt(pgross) + parseInt(pklein);
-		$('span#total').html('CHF ' + ptotal + '.-')
-	} 
-
-	$('#gPlus').on('click', function(){
-		var $button = $(this);
-		var choice = $("#gr")
-  		var oldValue = choice.val();
-
-	 	var newVal = parseFloat(oldValue) + 1;
-
-		choice.val(newVal);
-
-		var value = choice.val();
-		$('span#gross').html(value);
-		$('span#pgross').html(98 * value);
-
-		upTotal();
-	});
-
-	$('#gMinus').on('click', function(){
-		var $button = $(this);
-		var choice = $("#gr")
-  		var oldValue = choice.val();
-
-  		if (oldValue > 0) {
-      		var newVal = parseFloat(oldValue) - 1;
-    	} else {
-      		newVal = 0;
-    	}
-
-		choice.val(newVal);
-
-		var value = choice.val();
-		$('span#gross').html(value);
-		$('span#pgross').html(98 * value)
-
-		upTotal();
-	});
-
-	$('#kPlus').on('click', function(){
-		var $button = $(this);
-		var choice = $("#kl")
-  		var oldValue = choice.val();
-
-	 	var newVal = parseFloat(oldValue) + 1;
-
-		choice.val(newVal);
-
-		var value = choice.val();
-		$('span#klein').html(value);
-		$('span#pklein').html(68 * value)
-
-		upTotal();
-	});
-
-	$('#kMinus').on('click', function(){
-		var $button = $(this);
-		var choice = $("#kl")
-  		var oldValue = choice.val();
-
-  		if (oldValue > 0) {
-      		var newVal = parseFloat(oldValue) - 1;
-    	} else {
-      		newVal = 0;
-    	}
-    	
-		choice.val(newVal);
-
-		var value = choice.val();
-		$('span#klein').html(value);
-		$('span#pklein').html(68 * value)
-
-		upTotal();
-	});
-
-	$('#gr').on('keyup', function(){
-		var value = $(this).val();
-
-		$('span#gross').html(value);
-		$('span#pgross').html(98 * value)
-
-		upTotal();
-	});
-
-	$('#kl').on('keyup', function(){
-		var value = $(this).val();
-
-		$('span#klein').html(value);
-		$('span#pklein').html(98 * value)
-
-		upTotal();
-	});
-
-	$('body').on('click', function(){
-		if($('#kl').val() > 0 || $('#gr').val() > 0){
-			$('#submitone').removeAttr('disabled');
-			$('#submitone').click(function(){
-				$('#opentwo').attr('data-toggle','collapse');
-				setTimeout(function(){
-    				$("#inputName").focus();
-				}, 0);
-			});
-		} else {
-			$('#submitone').attr('disabled');
-		}
-	});
-
-	$('#collapseTwo input').on('keyup', function(){
-		if($('input#inputName').val() && $('input#Address').val() && $('input#Number').val() && $('input#Zip').val() && $('input#Place').val() && $('input#Email').val()) {
-			$('#submittwo').click(function(){
-				$('#openthree').attr('data-toggle','collapse');
-			});
-		}
-	});
-
-	$('#submittwo').click(function(){
-		$('#addresschoice').show();
-		$('#name').html($('input#inputName').val());
-		$('#address').html(""+$('input#Address').val() +" "+ $('input#Number').val()+"");
-		$('#address2').html($('input#Address2').val());
-		$('#place').html(""+$('input#Zip').val() +" / "+ $('input#Place').val()+"");
-		$('#inputNameKK').val($('input#inputName').val());
-		$(this).html('Änderungen übernehmen');
-		setTimeout(function(){
-    		$("#inputNameKK").focus();
-		}, 0);
-	});
-
-	$('#submitthree').click(function(){
-		$('#payment').show();
-		$('#kkname').html($('input#inputNameKK').val());
-		$('#kknumber').html($('input#KKnr').val().substr(-4));
-		$('#submit .btn').removeAttr('disabled');
-		$('#steps, #check').removeClass();
-		$('#steps').addClass('col-md-7');
-		$('#check').addClass('col-md-5');
-		$(this).html('Änderungen übernehmen');
-	});
-
-	$('.accordiontoggle').click(function(){
-		$('#steps, #check').removeClass();
-		$('#steps').addClass('col-md-8');
-		$('#check').addClass('col-md-4');
 	});
 });

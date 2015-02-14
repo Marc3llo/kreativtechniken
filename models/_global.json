@@ -1,7 +1,7 @@
 {
 	"app": {
-		"name": "Blueprint",
-		"icon": "icon.png"
+		"name": "Kreativitätstechniken",
+		"icon": false
 	},
 	"pages":[
 		{
@@ -25,7 +25,7 @@
 	],
 	"users": [
 		{
-			"username": "Marcello",
+			"username": "Marcelo",
 			"password": "13",
 			"name": {
 				"first": "Marcel",
@@ -44,7 +44,7 @@
 			"occupation": "Interaction Designer",
 			"role": "Fag"
 		},
-		{	
+		{
 			"username": "Admin",
 			"password": "admin",
 			"name": {
@@ -55,98 +55,442 @@
 			"role": "Admin"
 		}
 	],
-	"fruits": [
-		{
-			"name": {
-				"en": "Lemon",
-				"de": "Zitrone"
-			},
-			"taste": "sour"
-		},
-		{
-			"name": {
-				"en": "Apple",
-				"de": "Apfel"
-			},
-			"taste": "sweet"
-		},
-		{
-			"name": {
-				"en": "Peache",
-				"de": "Pfirsich"
-			},
-			"taste": "sweet"
-		},
-		{
-			"name": {
-				"en": "Banana",
-				"de": "Banane"
-			},
-			"taste": "good"
-		}
+	"categories": [
+		[
+			"assoziative",
+			"Assoziative Techniken"
+		],
+		[
+			"perspective",
+			"Perspektivische Techniken"
+		],
+		[
+			"list",
+			"Kombitechniken"
+		]
 	],
-	"snacks": [
-		{
-			"name": {
-				"en": "Chip",
-				"de": "Kartoffel"
-			},
-			"taste": "salty"
-		},
-		{
-			"name": {
-				"en": "Wasabi nut",
-				"de": "Apfel"
-			},
-			"taste": "spicy"
-		}
+	"filters": [
+		[
+			"me",
+			"Anzahl Teilnehmende",
+			"Einzeln",
+			"Ab 2",
+			"Ab 3",
+			"Je nachdem, wie viele Köpfe bei einer Kreativsitzung teilnehmen, kommen unterschiedliche Kreativitätstechniken in Frage. Einige sind erst in grösseren Gruppen möglich, wohingegen andere auch alleine durchgeführt werden können."
+		],
+		[
+			"du",
+			"Zeitaufwand in Minuten",
+			"5-15",
+			"15-30",
+			"Ab 30",
+			"Bei vielen Kreativtechniken muss etwas mehr Zeit einberechnet werden. Einige sind aber auch innerhalb weniger Minuten durchführbar."
+		],
+		[
+			"ou",
+			"Gewünschte Ergebnisform",
+			"Quantität",
+			"Qualität",
+			false,
+			"Welche Art von Ideen soll durch die Technik generiert werden? Quantität: in kürzester Zeit soll eine Sammlung von möglichst viele Ideen zustandekommen. Diese können sehr absurd sein und möglicherweise nicht zur Findung der eigentlichen Idee führen, dienen aber dazu, weitere Verknüpfungen und Assoziationen zu eröffnen. Qualität: es werden möglichst passende Ideen und Inputs zum Thema generiert, welche sehr wahrscheinlich auch weiterverwendet werden können"
+		],
+		[
+			"go",
+			"Anwendungszweck",
+			"Locker",
+			"Breit",
+			"Ziel",
+			"Welchem Zweck soll die Kreativitätstechnik dienen? Soll sie die Gruppe auflockern und ins Thema einführen? Oder soll sie helfen, über den Tellerrand hinauszublicken und neue Themenfeder aufzufächern? Oder aber soll sie zu einem ganz spezifischen Ziel führen und einen konkreten Lösungsansatz hervorbringen?"
+		],
+		[
+			"ex",
+			"Ausführungsart",
+			"Mündlich",
+			"Schriftlich",
+			false,
+			"Kreativtechniken können sowohl mündlich als auch schriftlich angewandt werden. Die schriftlichen Techniken dienen oft dazu, dass die einzelnen Teilnehmenden in der Gruppe anonym bleiben können, was vor allem zurückhaltendere Personen zum Mitmachen animieren soll."
+		],
+		[
+			"mo",
+			"Körperliche Bewegung",
+			"Keine",
+			"Mittel",
+			"Aktiv",
+			"Bei einigen Techniken sollen sich die Teilnehmenden aktiv bewegen. Dies führt zur Anregung des Denkflusses und lässt neue Sichtweisen entstehen."
+		],
+		[
+			"kn",
+			"Notwendige Vorkentnisse",
+			"Nein",
+			"Ja",
+			false,
+			"Für einige Techniken braucht es ein gewisses Vorwissen zum Thema. Manche Methoden eignen sich also nicht, wenn man sich mit dem vorgegebenen Thema, zu welchem Ideen gefunden werden sollen, noch nie auseinander gesetzt hat."
+		],
+		[
+			"mi",
+			"Denkweise",
+			"Geführt",
+			"Gemischt",
+			"Frei",
+			"Manche Techniken erfordern es, seine Haltung anzupassen und eine Denkweise anzunehmen. Dies kann zum Beispiel in Form von Rollenspielen der Fall sein. Somit soll verhindert werden, dass die Teilnehmenden engstirnig auf dem gleichen Standpunkt beharren."
+		],
+		[
+			"pr",
+			"Anonymität",
+			"Keine",
+			"Mittel",
+			"Ja",
+			"In jeder Gruppe gibt es unterschiedliche Charaktere. Während sich manche Personen in einer offenen Gesprächsrunde sehr stark einbringen, sind andere eher zurückhalten. Deshalb können Techniken sinnvoll sein, bei denen die einzelnen Teilnehmenden untereinander anonym bleiben, damit auch die zurückhaltenden Personen gleichermassen berücksichtigt werden und sich problemlos einbringen können."
+		]
 	],
-	"images": [
+	"techniques": [
 		{
 			"id": "001",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 96-c6b379d8.jpg"
+			"caption": "Brainstorming",
+			"image": false,
+			"category": "assoziative",
+			"filter": {
+				"members": ["me1 ", "me3"],
+				"duration": ["du1"],
+				"outcome": ["ou1"],
+				"goal": ["go1 ", "go2"],
+				"volume": ["vo1 ", "vo2"],
+				"exec": ["ex1 ", "ex2"],
+				"movement": ["mo1"],
+				"knowledge": ["kn1 ", "kn2"],
+				"mindset": ["mi3"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"20-60",
+				"5-7",
+				"Empfehlenswert",
+				"Empfehlenswert",
+				"Stift & Papier"
+			],
+			"description": "«Using the brain to storm a problem» ist die Leitidee des Brainstormings. Diese weitverbreitete Kreativitätstechnik kann für alle möglichen Problemfälle angewendet werden. Die oft relativ rohen Ergebnisse eines Brainstormings eigenen sich hervorragend, um in weiteren Arbeitsschritten verwendet werden zu können. Insbesondere dient diese Technik auch als Auflockerungsübung zum kreativen Denken.",
+			"action": "<h4>Vorbereitung</h4><p>Das gegebene Problem wird analysiert und präzisiert. Die zu formulierende Frage- bzw. Aufgabenstellung sollte dabei weder zu breit und allgemein noch zu spezifisch gehalten sein. Die Teilnehmenden werden über die vier Grundregeln informiert:</p> <ol><li>Kombinieren und aufgreifen von bereits geäusserten Ideen</li><li>Kommentare, Korrekturen und Kritik sind verboten</li><li>Möglichst viele Ideen in kürzester Zeit</li><li>Freies Assozieren und Phantasieren ist erlaubt</li></ol><h4>Ideenfindung</h4><p>Die Teilnehmenden nennen spontan Ideen zur Problemstellung, wobei sie sich im optimalen Fall gegenseitig inspirieren und dadurch weitere Ideen generieren und mit anderen kombinieren. Wichtig ist hier vor allem, dass die Ideenfindungsphase von der Ideenbewertung klar abgegrenzt wird. Der Protokollant hält kommentarlos sämtliche Ideen in seinen Notizen fest. Der Moderator ist dafür zuständig, dass die Regeln eingehalten werden und keine Ideen während des Brainstormings bewertet oder kritisiert werden (egal, ob positiv oder negativ).</p><h4>Nachbearbeitung</h4><p>Sämtliche Ideen werden in einer Nachbearbeitung laut vorgelesen, sortiert und bewertet. Hierbei geht es darum, thematische Zusammenhänge zu finden und problemferne Ideen auszusortieren. Die Ideen können dann mit geeigneten Techniken weiterverarbeitet werden.</p>",
+			"pros": "<ul><li>Einfache Handhabung</li><li>Dient zur Auflockerung</li><li>Ermöglicht das Querdenken und kann zu innovativen Ideen führen</li></ul>",
+			"cons": "<ul><li>Gefahr der Abschweifung</li><li>Aufwändige Selektion geeigneter Ideen</li><li>Gefahr von gruppendynamischen Konflikten</li></ul>"
 		},
 		{
 			"id": "002",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 94-c043b06f.jpg"
+			"caption": "Brainwalking",
+			"image": false,
+			"category": "assoziative",
+			"filter": {
+				"members": ["me3"],
+				"duration": ["du2"],
+				"outcome": ["ou1"],
+				"goal": ["go2"],
+				"volume": ["vo3"],
+				"exec": ["ex2"],
+				"movement": ["mo3"],
+				"knowledge": ["kn1 ", "kn2"],
+				"mindset": ["mi3"],
+				"privacy": ["pr2"]
+			},
+			"facts":[
+				"10-30",
+				"4-12",
+				"Empfehlenswert",
+				false,
+				"Wandplakate, Filzschreiber, Klebeband, Post-Its"
+			],
+			"description": "Man sagt, dass eine gut durchblutetes Gehirn den Ideenfluss fördert. Daher ist Bewegung ein wesentliches Element im Zusammenhang mit kreativem Denken. Ist ein Team schon längere Zeit gesessen, dann lockert diese Methode auf (und ist deshalb beispielsweise nach dem Mittagessen besonders gut geeignet).<h4>Besonderes</h4><p>Ideen dürfen laut ausgerufen werden, um die anderen anzuregen. Die Teilnehmer können auch den Rundgang für einen Moment unterbrechen und bei einem Plakat ein kurzes Brainstroming einbinden.</p>",
+			"action": "<h4>Vorbereitung</h4><p>Es werden mehrere Probleme formuliert und auf zwei bis vier Wandplakaten als offene Fragen aufgeschrieben (pro Plakat eine Frage). Die Fragen können inhaltlich zusammengehören oder auch nichts miteinander zu tun haben, um neue Assoziationen zu wecken. Die Plakate werden in einem grossen Raum mit genügend Abstand zueinander aufgehängt.</p><h4>Ideenfindung</h4><p>Die Teilnehmer notieren ihre Einfälle und Ideen und bewegen sich dann frei durch den Raum zum nächsten Plakat. Die bereits notierten Ideen werden gelesen und durch eigene Assoziationen weitergeführt. Die Teilnehmer schreiten so nach und nach den Raum ab und entwickeln stets neue Assoziationen, die auf den Gedanken der anderen aufbauen.</p><h4>Nachbearbeitung</h4><p>Die Plakate werden sorgfältig in Streifen geschnitten und die Ideen einzeln auf dem Boden verteilt. Zur Nachbearbeitung gibt es zwei verschiedene Möglichkeiten. Ist die Zeit gering, wählt jeder Teilnehmer drei Ideen aus und entscheidet sich dabei für einen Favoriten, welchen er anschliessend begründet. Steht etwas mehr Zeit zur Verfügung werden die Streifen zuerst auf Gemeinsamkeiten untersucht, zu Kolonnen zusammengefügt und dann als Gruppe neu betitelt. Anschliessend findet ein neuer Ideenfindungsvorgang statt, indem zu jeder Kolonne weitere Ideen entwickelt werden. Zum Schluss findet eine systematische Bewertung statt.</p>",
+			"pros": "<ul><li>Mischung zwischen «lautem» und «ruhigem» Ideensammeln</li><li>Ungestörte Assoziationsmöglichkeiten</li><li>Bringt Menschen und Ideen in Bewegung</li><li>Gibt bei aller Offenheit eine gewisse Anonymität</li></ul>",
+			"cons": "<ul><li>Braucht genügend Zeit zur Auswertung</li></ul>"
 		},
 		{
 			"id": "003",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 77-b3f30902.jpg"
+			"caption": "Brainwriting 635",
+			"image": false,
+			"category": "assoziative",
+			"filter": {
+				"members": ["me3"],
+				"duration": ["du2"],
+				"outcome": ["ou2"],
+				"goal": ["go2"],
+				"volume": ["vo3"],
+				"exec": ["ex2"],
+				"movement": ["mo1"],
+				"knowledge": ["kn1 ", "kn2"],
+				"mindset": ["mi1"],
+				"privacy": ["pr3"]
+			},
+			"facts":[
+				"30",
+				"6",
+				"Empfehlenswert",
+				false,
+				"Stift und pro Teilnehmer ein 6-3-5-Formular (DIN A4 unterteilt in 3 Spalten, Zeilen je nach Teilnehmerzahl)"
+			],
+			"description": "Das Brainwriting (oder Ringtauschtechnik 6-3-5) basiert ähnlich wie das Brainstorming auf dem Prinzip der Assoziation, erfolgt jedoch auf schriflticher Basis. Diese Kreativitätstechnik ist daher besonders empfehlenswert für Gruppen, bei denen aufgrund kultureller Gegebenheiten oder zu erwartenden Spannungen wenig Aussicht auf Erfolg ist.",
+			"action": "<h4>Vorbereitung</h4><p>Die Aufgaben- bzw. Problemstellung wird formuliert und für alle sichtbar visualisiert.</p><h4>Ideenfindung</h4><p>Die klassische 6-3-5-Methode verläuft so, dass 6 Teilnehmende jeweils 3 Ideen in einem Zeitabschnitt von 5 Minuten aufschreiben (jeweils eine Idee pro Spalte, in einer Zeile). Danach werden die Blätter im Uhrzeigersinn weitergegeben und in weiteren 5 Minuten werden erneut 3 Ideen entwickelt. Hierbei kann an die vorhandene Idee angeknüpft oder vollkommen neue Einfälle zu Papier gebracht werden.</p><h4>Nachbearbeitung</h4><p>In einer erneuten Runde werden die Ideen verdeckt bewertet und können anschliessend mit geeigneten Techniken weiterverarbeitet werden.</p>",
+			"pros": "<ul><li>Eigenbestimmtes, ungestörtes Denken</li><li>Paralleles Arbeiten</li><li>Aktivierung von zurückhaltenden Teilnehmenden</li><li>Gibt bei aller Offenheit eine gewisse Anonymität</li></ul>",
+			"cons": "<ul><li>Weniger spontan, als beim Brainstorming</li><li>Wenig Platz, um Ideen zu formulieren</li><li>Erfahrene (ideensprudelnde) Teilnehmende können sich leicht langweilen und werden eventuell gebremst</li></ul>"
 		},
 		{
 			"id": "004",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 71-5d9460f7.jpg"
+			"caption": "Kartenumlauftechnik",
+			"image": false,
+			"category": "assoziative",
+			"filter": {
+				"members": ["me3"],
+				"duration": ["du2"],
+				"outcome": [ "ou2"],
+				"goal": ["go2"],
+				"volume": ["vo3"],
+				"exec": ["ex2"],
+				"movement": ["mo1"],
+				"knowledge": ["kn1 ", "kn2"],
+				"mindset": ["mi2"],
+				"privacy": ["pr2"]
+			},
+			"facts":[
+				"90",
+				"5-7",
+				"Empfehlenswert",
+				false,
+				"Flipchart, Karten oder Post-Its, Stifte"
+			],
+			"description": "Die Kartenumlauftechnik ist als Methode sowohl für die Analysephase als auch in der Phase der Ideenfindung anwendbar. Sie hilft zu Beginn eine Problemlandschaft aufzuzeigen, ohne langwierige Grundsatzdiskussionen auszulösen. Die Kartenumlauftechnik eignet sich besonders bei Problemstellungen, bei denen sehr unterschiedliche Lösungsvorschläge erwünscht sind.",
+			"action": "<h4>Vorbereitung</h4><p>Die Aufgabenstellung sowie Fakten und Lösungsanforderungen werden formuliert und auf einem Flipchart festgehalten.</p><h4>Ideenfindung</h4><p>Die Teilnehmenden setzen sich wenn möglich an einen kreisrunden Tisch und schreiben ihre Ideen und Lösungsvorschläge auf die Karten. Jede Idee wird auf eine eigenständige Karte geschrieben und danach dem Nachbaren zur Linken in Griffweite hingelegt. Lässt der individuelle Ideenfluss nach, werden nach spätestens fünf Minuten zur Inspiration die Karten des Nachbaren aufgegriffen. Daraus entstehende neue Ideen, welche ebenfalls auf separaten Karten notiert werden. Dies wird solange wiederholt, bis jeder Teilnehmende wieder seine eigenen Karten vor sich liegen hat.</p><h4>Nachbearbeitung</h4><p>Die Karten werden sortiert und thematisch gebündelt. Doppelnennungen werden eliminiert. Anschliessend erhält jedes Bündel eine Überschriftskarte. Die Bewertung erfolgt dann mittels Klebepunkten und vorher definierten Kriterien.</p>",
+			"pros": "<ul><li>Eigenbestimmtes, ungestörtes Denken</li><li>Paralleles Arbeiten</li><li>Störendes Verhalten wird unterbunden</li><li>Aktivierung von zurückhaltenden Teilnehmenden</li><li>Ideenbewertung ist in die Methode integriert</li></ul>",
+			"cons": "<ul><li>Weniger spontan, als beim Brainstorming</li><li>Wenig Platz, um Ideen zu formulieren</li></ul>"
 		},
 		{
-			"id": "001",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 96-c6b379d8.jpg"
+			"id": "005",
+			"caption": "Sechs Denkhüte",
+			"image": false,
+			"category": "perspective",
+			"filter": {
+				"members": ["me3"],
+				"duration": ["du2"],
+				"outcome": ["ou2"],
+				"goal": ["go2"],
+				"volume": ["vo2"],
+				"exec": ["ex1"],
+				"movement": ["mo2"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi1"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"30–120",
+				"6",
+				"1",
+				"Nicht nötig",
+				"Flipchart, farbige Hüte (können auch aus Papier gebastelt werden) und Stifte"
+			],
+			"description": "<p>Bei dieser Methode handelt es sich, ähnlich der Walt-Disney-Methode, um eine Diskussionsrunde mit Rollenverteilung. Die sechs Teilnehmenden tragen nacheinander Hüte in unterschiedlichen Farben, wobei jeder Hut eine bestimmte Haltung bzw. Rolle des Trägers bestimmt. Alternativ können auch verschiedenfarbige Armbänder oder Karten verteilt werden.<br/>Die Methode mit den sogenannten Denkhüten nutzt die menschliche Fähigkeit, sich zu verstellen. Alle Teilnehmenden spielen eine andere Rolle – somit ist eine offenere Diskussionen möglich und jeder kann das Problem aus unterschiedlichen Blickwinkeln betrachten</p><h4>BESONDERES</h4><p>Paralleles Denken: Alle Beteiligten denken zur gleichen Zeit in die gleiche (Denk-)Richtung</p>",
+			"action": "<h4>VORBEREITUNG</h4><p>Suchen Sie einen ruhigen Raum, in dem sieben Stühle und ein Tisch Platz finden.<br/>Erläutern Sie den Teilnehmenden kurz die Vorgehensweise und die Aufgabenstellung. Nun können Sie aus farbigem Papier oder Bändern die sechs Hüte basteln. </p><h4>IDEENFINDUNG</h4><p>Die 6 Denkhüte begünstigen – bezogen auf eine zu entwickelnde Idee oder die Lösung eines Problems – einen Perspektivenwechsel, der durch sechs verschiedene Farben symbolisiert wird. Alle Beteiligten haben zur gleichen Zeit den gleichen Hut auf und denken in die gleiche Richtung, was etwaige Konfrontationen eliminieren soll. Die Farbe des Hutes bestimmt dabei die vorgegebene Denkrichtung: </p><ul><li>Weisser Hut: gibt Informationen und Fakten wieder (emotionslos, neutrales Denken), interessiert sich nicht für subjektive Meinungen und bewertet nicht</li><li>Roter Hut: gibt Raum für Gefühle und Intuition (emotional ohne Begründung)</li><li>Gelber Hut: lenkt die Aufmerksamkeit auf Vorteile und Möglichkeiten (z.B. von vorgestellten Vorschlägen/Ideen), hat zu allem eine optimistische (sonnige) Grundeinstellung</li><li>schwarzer Hut: Ist das Gegenteil vom gelben Hut, warnt vor und skizziert Risiken, Bedenken und Gefahren (z.B. von vorgestellten Vorschlägen/Ideen), verteufelt alles</li><li>Grüner Hut: entwickelt neue Ideen und Alternativen; originell und erfinderisch (die klassische Definition des Kreativen)</li><li>Blauer Hut: organisiert, leitet und lenkt den Prozess, ist objektiv und strukturiert Ideen und Gedanken</li></ul><p>Es gibt keine vorgeschriebene Reihenfolge – wohl aber Empfehlungen für unterschiedliche «Standard-Situationen». Eine von vielen Möglichkeiten – hier am Beispiel «Problemlösung» dargestellt – ist: </p><ol><li>Der blaue Hut (meist eine designierte Person) leitet ein und erläutert Sinn und Ziel der Zusammenkunft.</li><li>Unter dem weißen Hut werden Fakten und objektive Informationen über die IST-Situation zusammengetragen.</li><li>Unter dem roten Hut werden (ohne Begründung) subjektive Gefühle zur bestehenden Situation geäußert.</li><li>Der grüne Hut aktiviert die Beteiligten zur gemeinsamen Ideenfindung.</li><li>Der blaue Hut schlägt eine kurze Auswahl geeigneter Vorschläge vor.</li><li>Mit dem gelben Hut auf dem Kopf sammeln die Beteiligten Vorteile von ausgewählten gesammelten Vorschlägen.</li><li>Mit dem schwarzen Hut auf dem Kopf äußern die Beteiligten ihre Bedenken und zeigen Risiken auf.</li><li>Unter dem blauen Hut werden die geäusserten Punkte zusammengefasst und eine Entscheidung getroffen.</li></ol><h4>NACHBEARBEITUNG</h4><p>Nach der Diskussion und Bewertung der entstandenen Ideen und Vorschläge kann der Fragesteller sich nun intensiv mit den Ergebnissen auseinandersetzen und prüfen.</p>",
+			"pros": "<ul><li>Förderung eines mehrfachen Perspektivenwechsels</li><li>Alle Beteiligten denken zur gleichen Zeit in die gleiche Richtung</li><li>Klassische Kreativitätstechniken können nahtlos situativ eingebunden werden, wenn ein «Hut» dies erfordert (oder ein Teilnehmender es für produktiv hält)</li><li>Rahmenwerk für Kommunikation – zur Vermeidung von Konflikten und Diskussionen</li><li>Nimmt den Focus weg von «Kreativität» und lenkt ihn auf das integrale, kreative Problemlösen</li><li>Separate ego from performance</li></ul>",
+			"cons": "<ul><li>Braucht etwas Übung, da man verschiedene Positionen einnehmen muss</li><li>Benötigt eine gewisse Vorbereitungszeit</li><li>Wird gelegentlich als reines Rollenspiel aufgefasst</li><li>Braucht eine erfahrene Moderation</li><li>Erfordert Disziplin</li></ul>"
 		},
 		{
-			"id": "002",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 94-c043b06f.jpg"
+			"id": "006",
+			"caption": "Walt-Disney-Methode",
+			"image": false,
+			"category": "perspective",
+			"filter": {
+				"members": ["me1 ", "me2 ", "me3"],
+				"duration": ["du2"],
+				"outcome": ["ou2"],
+				"goal": ["go2"],
+				"volume": ["vo2"],
+				"exec": ["ex1"],
+				"movement": ["mo2"],
+				"knowledge": ["kn1 ", "kn2"],
+				"mindset": ["mi1"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"60–180",
+				"3",
+				"ein neutraler Beobachter",
+				"Empfehlenswert",
+				"Papier und Stifte, vier markierte Stühle"
+			],
+			"description": "<p>Die Walt-Disney-Methode kommt in der heutigen Business- und Managementwelt regelmässig zum Einsatz. Speziell dort wo festgefahrene Denkstrukturen gelöst werden sollen, bietet diese Methode die Möglichkeit, Probleme und Gegebenheiten aus einem ganz anderen Blickwinkel zu sehen und zu lösen.</p> <h4>BESONDERES</h4> <p>Das Rollenspiel, die eigentliche Grundidee der ganzen Methode, kann von einer Einzelperson, aber auch im Team angewandt werden.</p>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Der erfolgreiche Filmproduzent Walt Disney unterstützte das Rollenspiel, indem er für jede einzelne Rolle – die des Träumers, des Realisten und des Kritikers – sogar jeweils einen eigenen Raum in seiner Firma schuf, der entsprechend der Rollen eingerichtet war. </p> <p>Es reichen aber auch drei Stühle, die in verschiedenen Ecken eines Raumes gestellt werden. Natürlich unterstützt jede zusätzliche «Verschönerung» der Träumerecke, wie z.B. Blumen oder Stoffe, die Kreativität und Ideenfindung des Träumers. </p> <h4>IDEENFINDUNG</h4> <p>Es werden in einem Raum 3 bzw. 4 Plätze (z.B. Stühle, Papierblätter etc.) entsprechend den Rollen markiert. Sie dienen als «Anker», die den Teilnehmenden helfen sollen, sich in Ihre Rolle hineinzuversetzen. Die Anker werden so platziert, dass sie sich gegenüber liegen. </p> <p>Damit es leichter fällt, die entsprechenden Rollen einzunehmen, können auch ganz andere Orte für die jeweilige Position genutzt werden. Dies ist besonders gut in der Einzelarbeit möglich. Hier kann der Teilnehmende sich selbst Orte suchen, an denen er besonders kreativ, realistisch oder auch kritisch ist. Wird die Methode in Einzelarbeit angewandt, durchläuft der Teilnehmende selbst alle Positionen nacheinander. In Gruppenarbeit werden die einzelnen Positionen durch mehrere Personen eingenommen, die gemeinsam alle Positionen durchlaufen und jeweils einen Standpunkt erarbeiten. </p> <p>Die einzelnen Rollen werden nacheinander eingenommen und das Thema/Problem aus dieser Sicht beschrieben und argumentiert. Nachdem die Position des Träumenden betrachtet wurde, erfolgt der Wechsel zur RealistIn, danach zum Kritiker / zur Kritikerin und danach wieder zum Träumenden usw. Der Wechsel der Positionen wird so oft vorgenommen, bis alle Positionen mit der entstandenen Idee leben können und mit dem Ergebnis zufrieden sind. </p> <h4>NACHBEARBEITUNG</h4> <p>Der Kreativprozess gilt als abgeschlossen, wenn keine weiteren relevanten Fragen offen sind und abzusehen ist, dass ein weiterer Durchlauf keine Optimierung bringt.</p>",
+			"pros": "<ul> <li>sowohl für Einzel- als auch für Gruppenarbeit geeignet</li> <li>Betrachtung von verschiedenen Blinkwinkeln</li> </ul>",
+			"cons": "<ul> <li>Rollenergebnisse müssen exakt voneinander abgegrenzt werden</li> </ul>"
 		},
 		{
-			"id": "003",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 77-b3f30902.jpg"
+			"id": "007",
+			"caption": "Osborn-Checkliste",
+			"image": false,
+			"category": "perspective",
+			"filter": {
+				"members": ["me1 ", "me2"],
+				"duration": ["du3"],
+				"outcome": ["ou2"],
+				"goal": ["go3"],
+				"volume": ["vo2"],
+				"exec": ["ex1"],
+				"movement": ["mo1"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi1"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"60–180",
+				"1–3",
+				"1",
+				"Empfehlenswert",
+				"Papier und Stifte"
+			],
+			"description": "<p>Mit Hilfe einer Reihe von Fragen sollen neue Ideen, Prozesse oder Produkte generiert werden. Die Methode soll helfen, neue Blickwinkel zu eröffnen und Potenzial zu erkennen. Diese Technik eignet sich vor allem, um bestehende Prozesse und Produkte zu optimieren.</p> <h4>BESONDERES</h4> <p>Die Ziele werden als Frage formuliert. Zur Entwicklung von Neuprodukten nicht geeignet!</p>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Um zielführend zu schaffen, empfiehlt sich eine klare Zielformulierung in Form einer Frage, damit von Anfang an klar ist, wohin die Reise geht. </p> <h4>IDEENFINDUNG</h4> <ol> <li><p>Formulieren Sie ein Ziel.</p></li> <li><p>Beziehen Sie einen Punkt aus der Checkliste auf die Zielformulierung. Beispiel: Kann man durch die Handhabung erreichen, dass der Leser den integrierten Coupon unbedingt einsenden möchte?</p></li> <li><p>Bleiben Sie beim gewählten Punkt aus der Checkliste und gehen Sie in die Tiefe. Loten Sie alle Möglichkeiten intensiv aus und wählen Sie erst einen neuen Punkt, wenn dieser absolut nichts mehr hergibt. </p></li> <li><p>Schreiben Sie alle Einfälle auf oder machen Sie einfache Skizzen.</p></li> </ol> <h4>NACHBEARBEITUNG</h4> <p>Wenn alles gut gelaufen ist, sollte am Ende des Meetings eine grosse Sammlung an an rohen Ideen entstanden sein. Anschliessend sollten sich die Teilnehmenden wieder an den Grundsätzen für die kreative Teamarbeit orientieren und versuchen, die ersten Ideen und Lösungsansätze in Form von Skizzen weiterzuentwickeln. Erst danach werden die Ideen bewertet und letztendlich die beste ausgewählt.</p>",
+			"pros": "<ul> <li>Einfache Handhabung</li> <li>Systematisches Vorgehen verhindert frühzeitigen Abbruch der Ideenfindung</li> <li>Betrachtung einer Fragestellung/Thematik von verschiedenen Seiten</li> <li>Sowohl im Team als auch in Einzelarbeit einsetzbar</li> </ul>",
+			"cons": "<ul> <li>Zeitintensiv</li> <li>Spontane Einfälle und komplett neue und andersartige Ideen haben aufgrund der streng methodischen Führung wenig Raum</li> </ul>"
 		},
 		{
-			"id": "004",
-			"caption": "Miami",
-			"url": "http://marcelhadorn.com/system/html/miami2012 71-5d9460f7.jpg"
+			"id": "008",
+			"caption": "Progressive Abstraktion",
+			"image": false,
+			"category": "perspective",
+			"filter": {
+				"members": ["me1 ", "me2 ", "me3"],
+				"duration": ["du3"],
+				"outcome": ["ou2"],
+				"goal": ["go2 ", "go3"],
+				"volume": ["vo1 ", "vo2 ", "vo3"],
+				"exec": ["ex2"],
+				"movement": ["mo1"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi3"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"Ab 30",
+				"1–8",
+				"1",
+				"Empfehlenswert",
+				"Papier und Stifte"
+			],
+			"description": "<p>Die Progressive Abstraktion ist eine Kreativitätstechnik, deren Konzeption im Ursprung auf Horst Geschka zurückgeht. </p> <p>Bei dieser Methode werden durch die Entfernung vom Problem, also eine Veränderung der Perspektive, neue Lösungen gefunden. Durch eine schrittweise Erhöhung des Abstraktionsniveaus und somit Trennung des Wesentlichen vom Unwesentlichen werden die Kernfragen eines Problems oder Problembereiches aufgedeckt. </p> <p>Zwei wesentliche Ziele werden verfolgt: </p> <ul> <li>Die Zusammenhänge zwischen einem vorgegebenen Problem und dem Zielsystem des Problemlösenden werden herausgearbeitet.</li> <li>Die Massnahmenebene, auf welcher Lösungen am wirkungsvollsten sind, wird aufgezeigt.</li> </ul> <h4>BESONDERES</h4> <p>Die Progressive Abstraktion ist eine geeignete Methode zur Ideenfindung bei Analyseproblemen. Man versucht Strukturen zu erkennen und Zusammenhänge zu klären.</p>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Festlegen, worum es geht: Zum Beispiel befindet sich jemand in der Situation, in der er einen Nagel in die Wand schlagen möchte, ein Hammer fehlt. </p> <h4>IDEENFINDUNG</h4> <ol> <li>Man entfernt sich vom Problem, indem das Problem auf der nächsthöheren Ebene gesucht wird. Dies geschieht durch die Frage: «Wofür ist das eigentlich gut?»</li> <li>Eine Lösung wird danach durch folgende Frage gesucht: «Wie könnte das noch gehen?»</li> <li>Wird keine Lösung gefunden, wird das Problem auf der nächsthöheren Ebene weiter abstrahiert (Wiederholung von 1 und 2).</li> </ol> <h4>NACHBEARBEITUNG</h4> <p>Wenn keine zufriedenstellende Lösung gefunden wurde, wird weiter abstrahiert: z.B. ist es notwendig, einen Nagel in die Wand zu schlagen oder gibt es andere Möglichkeiten, einen Gegenstand an der Wand zu befestigen? Dieses Vorgehen kann mehrfach weitergeführt werden. </p>",
+			"pros": "<ul> <li>Wesenskern der Aufgabe wird erkannt</li> <li>Festgelegte Haltungen der Teilnehmenden werden gelöst</li> <li>Neue Lösungen werden entdeckt</li> </ul>",
+			"cons": "<ul> <li>Richtiges Abstrahieren ist schwierig</li> <li>Geschulte und erfahrene Teammitglieder sind notwendig</li> <li>Gefahr, durch Abstraktion von eigentlicher Problemstellung abzukommen</li> </ul>"
+		},
+		{
+			"id": "009",
+			"caption": "Backcasting",
+			"image": false,
+			"category": "list",
+			"filter": {
+				"members": ["me1 ", "me2 ", "me3"],
+				"duration": ["du3"],
+				"outcome": ["ou2"],
+				"goal": ["go3"],
+				"volume": ["vo1"],
+				"exec": ["ex1"],
+				"movement": ["mo2"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi2"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"min. 60",
+				"min. 3",
+				"Empfehlenswert",
+				"Empfehlenswert",
+				"Grosse Wand oder langer Tisch, bunte Post-It&#8217;s"
+			],
+			"description": "<p>Diese Technik ist eine Kombination aus intuitiven und diskursiven Methoden. Backcasting ist ein strategisches Planungsinstrument, in der die Akteure zu Beginn Zukunftsszenarien/Visionen formulieren und dann versuchen herauszufinden, was notwendig ist, um den angestrebten idealen Zustand aus der aktuellen Situation heraus zu entwickeln. Zentral ist also die Fragestellung: «Was kann ich heute tun um diese Vision zu erreichen?» </p> <p>Backcasting wird folgendermassen eingesetzt:<br/> * Entwicklung von gestützten Visionen für die Zukunft<br/> * Unterstützung von strategischer Design-Projekten, die mehrere Produkte und Anwender einbinden<br/> * Unterstützung für komplexe Projekte, die das «nächste grosse Ding» sein sollen.<br/> * Hinterfragen von bestehenden Prognosen. </p> <h4>BESONDERES</h4> <p>Hier wird zuerst die Vision entwickelt und von dieser dann in die Gegenwart zurück gedacht. Die Realisierbarkeit der Vision wird dabei nicht beachtet.</p>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Begonnen wird damit, sich ein wünschenswertes Zukunftsszenario zu überlegen. Es sollten Szenarien für komplexe Fragestellungen gefunden werden, deren Lösung einen Paradigmenwechsel verlangen. Beispielsweise könnten Szenarien für «eine Zukunft ohne fossile Brennstoffe bei der Individualmobilität» entwickelt werden. </p> <h4>IDEENFINDUNG</h4> <ul> <li>Stellen Sie eine Reihe von Fragen bezüglich des Themas (Herausforderung, Problem, Vision) über den zeitlichen Rahmen, den gegenwärtigen Stand, zukünftige ideale Zustände, Indikatoren, an denen sich die Wertigkeit bemessen soll, zu Risiken und Chancen, die als Grundlagen während des Backcastings verwenden werden.</li> <li>Beschreiben Sie den aktuellen Stand des Projektes, des Problem oder des Produkts. Was sind die wichtigsten Eckpunkte?</li> <li>Definieren Sie ein oder mehrere mögliche zukünftige Zustände und/oder Ideen.</li> <li>Definieren Sie ein oder mehrere mögliche garantiert nicht erfolgsversprechende zukünftige Zustände und/oder Ideen</li> </ul> <h4>NACHBEARBEITUNG</h4> <ul> <li>Betrachten Sie jeden zukünftigen Zustand und arbeiten Sie sich zeitlich rückwärts vor.</li> <li>Identifizieren Sie Chancen und Risiken.</li> <li>Die gewonnenen Szenarien werden nun analysiert. Dies erfolgt nach folgenden Kategorien: Realisierbarkeit aus heutigem Stand der Technik, Chancen und Hindernisse während des Prozesses, das grösste Problem bei der Implementierung und wie es gelöst werden könnte, Zeitplan für die Implementierung.</li> </ul>",
+			"pros": "<ul> <li>Visionäres Denken ist erlaubt</li> </ul>",
+			"cons": "<ul> <li>Aufpassen, dass man nicht komplett den Boden verliert</li> </ul>"
+		},
+		{
+			"id": "010",
+			"caption": "SIL Methode",
+			"image": false,
+			"category": "list",
+			"filter": {
+				"members": ["me3"],
+				"duration": ["du3"],
+				"outcome": ["ou2"],
+				"goal": ["go2 ", "go3"],
+				"volume": ["vo1"],
+				"exec": ["ex1"],
+				"movement": ["mo2"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi3"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"120 bis 180",
+				"3–8",
+				"Ja",
+				"Nicht nötig",
+				"1 Flipchart und 3 Pinwände"
+			],
+			"description": "<p>Absicht und Ziel der SIL-Methode ist es, die Synergie in kreativen Teamprozessen weit mehr zu verstärken, als dies in üblichen Brainstormings wegen des raschen und zuweilen sehr sprunghaften Gedankenflusses der Fall ist. </p> <h4>BESONDERES</h4> <ul> <li>mehrere Räume für Einzel- oder Kleingruppenarbeit</li> <li>bei mehr als 8 Teilnehmenden jeweils eine Person als Moderation zur Arbeit in Kleingruppen</li> </ul>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Die Mitglieder des Teams erarbeiten individuell je einen Lösungsansatz. Ihre Vorschläge werden reihum präsentiert, und es wird im Team versucht, aus den Vorzügen der Einzelideen Kombinationslösungen von höherer Qualität zu bilden. </p> <h4>IDEENFINDUNG</h4> <p>Nach der ausführlichen Durchleuchtung der Aufgabenstellung, Klärung der Lösungsziele und exakten Definition der Problemstellung erarbeitet jeder Teilnehmende für sich einen Lösungsvorschlag. Dabei ist der Hinweis sinnvoll, sich zunächst einige Alternativen zu überlegen und dann jene auszuwählen und auszugestalten, die man für die vorteilhafteste hält. Zeit für diesen Schritt: Etwa 25 Minuten. </p> <p>Als nächstes bittet der Moderator den ersten Teilnehmenden (T1), seine Idee zu präsentieren (evtl. als Skizze auf einem Flipchart). Diese Idee wird dann mit ihren Grundzügen auf die erste Pinwand übertragen.</p> <p>Sie hat die Überschrift: Ideen der Teilnehmenden &#8230;<br/> Dann wird in der Gruppe gemeinsam erörtert, worin die besonderen Vorzüge dieser ersten Idee (Idee 1) bestehen.<br/> Das Ergebnis wird auf der zweiten Pinwand (Überschrift: Besonders gut daran ist &#8230;) festgehalten. </p> <p>Dann trägt der zweite Teilnehmende (T2) seine Idee vor, die genau so behandelt wird. Anschliessend wird im Team versucht, aus den Ideen 1+2 eine «Kombinationsidee» (= integrierte Lösung) zu erarbeiten, die die Vorzüge beider Ideen vereint.<br/> Diese Kombinations-Idee 1 wird auf Pinwand 3 notiert (Überschrift: Integrierte Lösungen). </p> <p>Bei Idee 3 wird analog verfahren, wobei es jetzt darum geht, die erste Integrierte Lösung (Kombinations-Idee) noch weiter zu verbessern. Es ist aber auch zu überprüfen ob Idee 3+1 sowie 3+2 zu anderen interessanten Kombinationsideen führen könnte. Die Ergebnisse werden wiederum auf Pinwand 3 geschrieben. </p> <h4>NACHBEARBEITUNG</h4> <p>Der Prozess ist beendet, wenn alle individuellen Ideen auf diese Weise behandelt wurden. In das Ergebnis-Protokoll fliessen sowohl die Individualideen als auch alle Kombinationsideen ein.</p>",
+			"pros": "<ul> <li>Aufnahme aller Vorschläge der Teilnehmenden</li> <li>umfassende, ausgereifte und von allen akzeptierte Lösungen</li> <li>hohe Identifikation aller Teilnehmenden mit Erarbeitungsprozess und</li> </ul>",
+			"cons": "<ul> <li>quantitativ wenig Vorschläge für Projektthemen</li> </ul>"
+		},
+		{
+			"id": "011",
+			"caption": "Reizwortanalyse",
+			"image": false,
+			"category": "list",
+			"filter": {
+				"members": ["me2 ", "me3"],
+				"duration": ["du2 ", "du3"],
+				"outcome": ["ou1"],
+				"goal": ["go1"],
+				"volume": ["vo1"],
+				"exec": ["ex1"],
+				"movement": ["mo2"],
+				"knowledge": ["kn2"],
+				"mindset": ["mi1"],
+				"privacy": ["pr1"]
+			},
+			"facts":[
+				"15–20",
+				"2–10",
+				"Ja",
+				"Nicht nötig",
+				"Buch/Lexikon/Zeitschrift, Reizwortliste, Papier und Stifte"
+			],
+			"description": "<p>Die Reizwortanalyse gehört zu den sehr freien Kreativitätstechniken. Hierbei sollen bewusst auch verrückte Einfälle zugelassen werden. Vor allem im künstlerischen Bereich, in der Werbung oder im Marketing hat sie sich bewährt. Es geht darum, zu einem Problem durch den Anreiz eines beliebigen Wortes / mehrerer beliebiger Wörter, Ideen zu produzieren.</p>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Zuerst müssen ein oder mehrere Reizwörter (maximal 5) gefunden werden. Dabei sind der Phantasie keine Grenzen gesetzt. Sie können z.B. ein Buch wahllos aufschlagen und das elfte Wort als Reizwort auswählen. Oder Sie schreiben mit der Arbeitsgruppe Wörter auf kleine Zettel und sammeln diese in einem Korb, aus dem das Reizwort dann wie ein Los gezogen wird.<br/> Wichtig: Zu diesem Zeitpunkt darf die Gruppe das zu lösende Problem noch nicht kennen! </p> <h4>IDEENFINDUNG</h4> <ol><li>Formulieren Sie schriftlich, zu welcher Fragestellung Sie eine Idee suchen. Zum Beispiel: «Wie können wir erreichen, dass unsere Weihnachtskarte den Kundinnen und Kunden wirklich auffällt?»</li> <li>Wählen Sie nach dem Zufallsprinzip einen Begriff (Hauptwort) aus der Reizwortliste.</li> <li>Schreiben Sie vier bis sechs charakteristische Merkmale des zufällig gewählten Begriffs auf. Wenn Ihr Zufallsbegriff zum Beispiel «Benzin» war, dann könnten diese Merkmale so lauten:</li><ol><li>«explosiv»</li><li>«Energie spendend»</li> <li>«geruchsvoll»</li> <li>«flüssig»</li> </ol> <li>Versuchen Sie nun zwischen Ihrem Thema (Weihnachtskarten) und jedem Merkmal Verbindungen herzustellen. Welche Ideen fallen Ihnen zu den einzelnen Merkmalen, zu «explosiv», «Energie spendend», «geruchvsoll» ein?</li> <ol> <li>Eine Tischbombe, die Weihnachtswünsche ausspuckt, wenn sie explodiert.</li> <li>Eine Weihnachtskarte, die nach Tannenharz riecht und so vorweihnachtliche Gefühle versprüht. </li> <li>Eine Karte in Form eines Wärmebeutels, an dem in kalten Wintertagen die Hände aufgewärmt werden können.</li></ol> <li>Wiederholen Sie diesen Vorgang mit einem oder zwei weiteren Zufallswörtern. Acht bis zehn Minuten sollten für ein Zufallswort ausreichend sein.</li> </ol> <h4>NACHBEARBEITUNG</h4> <p>Analysieren Sie die gefundenen Zusammenhänge auf Anwendbarkeit und Umsetzbarkeit.</p>",
+			"pros": "<ul> <li>Erfolgsgarantie nach intensiver Beschäftigung/Auseinandersetzung</li> <li>Geringer Aufwand</li> <li>Engagement aller beteiligten Personen</li> <li>Spass an der Art einer Problemlösung</li> </ul>",
+			"cons": "<ul> <li>Es besteht das Risiko der erschwerten Suche eines zusammenhängenden Sinns zwischen Reizwort und Problem.</li> <li>Die Analyse/Problemlösung kann unter Umständen ziemlich lang dauern. Je nach Kreativität der einzelnen Personen.</li> <li>Die Technik ist für Anfänger nicht geeignet.</li> <li>Die Gefahr, sich zu zerstreuen und abzuschweifen ist hoch.</li> </ul>"
+		},
+		{
+			"id": "012",
+			"caption": "Vistem",
+			"image": false,
+			"category": "list",
+			"filter": {
+				"members": ["me1 ", "me3"],
+				"duration": ["du3"],
+				"outcome": ["ou1"],
+				"goal": ["go2 ", "go3"],
+				"volume": ["vo3"],
+				"exec": ["ex2"],
+				"movement": ["mo2"],
+				"knowledge": ["kn1"],
+				"mindset": ["mi2"],
+				"privacy": ["pr2"]
+			},
+			"facts":[
+				"20–60",
+				"1, 3–6",
+				"Nicht nötig",
+				"Nicht nötig",
+				"Packpapier, Post-Its und Stifte"
+			],
+			"description": "<p>Diese Technik ist eine Kombination aus intuitiven und diskursiven Strategien.<br/> Im Prinzip geht es darum, kleine Haftzettel oder Notizzettel (Post-Its) mit einzelnen Informationen zu beschriften und diese «sinnig» aufzukleben oder anzuordnen. Diese Informationshäppchen können zum Beispiel als Notizen für einen Vortrag oder als Gesprächsgrundlage für eine Konferenz genutzt werden. Sie können mit ihnen Konzepte entwickeln, Ideen festhalten, Pläne ausarbeiten usw. Wann immer es darum geht, ein Thema mit seinen dazugehörigen Inhalten visuell zu erfassen, Überlegungen anzustellen, Reihenfolgen zu erarbeiten oder Handlungen abzuleiten, kann diese Technik sehr hilfreich sein.<br/> Typische Anwendungen für die Vistem Technik sind:<br/> Inhalte, Gedanken, Pläne, Ideen zu erfassen und flexibel hin- und herzuschieben. </p><h4>BESONDERES</h4><ul> <li>Geeignet, um ein Thema visuell zu erfassen</li> <li>Ähnlichkeiten mit Mindmaps</li> <li>Klassifizieren gut möglich</li> <li>Reihenfolge und Anordnungen abbilden</li> <li>Flexibles hin- und her schieben der Post-It&#8217;s möglich, dadurch können sich weitere Möglichkeiten ergeben</li> <li>Man darf durchaus auch ein eigenes System dazu erarbeiten</li> </ul>",
+			"action": "<h4>VORBEREITUNG</h4> <p>Es werden Post-Its, Stifte und Papier bereitgelegt und Platz auf einem grossen Tisch oder Wand geschafft. Nach dem Beschriften der Handzettel ist es wichtig, eine lineare Struktur in die Vielfalt der Ideen zu bringen, damit es visuell anschaulicher wird. </p> <h4>IDEENFINDUNG</h4> <p>Die Ideen zum Problem, Produkt oder auch die Inhalte zum Konzept werden auf Post-Its geschrieben. Wollen Sie verschiedene Strukturen, Regeln oder anderes optisch hervorheben, macht es Sinn, verschiedenfarbige Zettel zu nehmen. Es können auch Sätze auf verschiedene Post-Its geschrieben werden, damit man dadurch mehrere Optionen erhält. Nach einem wilden Brainstorming sollte darauf geachtet werden, dass anschliessend bereits lineare Strukturen gebildet werden können. </p> <h4>NACHBEARBEITUNG</h4> <p>Durch das bereits strukturierte Ablegen der Post-Its (Pits) ist es kein grosser Aufwand mehr, alles logisch anzuordnen.</p>",
+			"pros": "<ul> <li>Strukturieren schon während des Sammelns der Gedanken und Ideen möglich</li> <li>Hierarchien zu bilden wird ermöglicht</li> <li>Inhalte, Gedanken, Pläne, Ideen erfassen und flexibel hin- und herschieben</li> <li>Eine komplexe Thematik kann übersichtlich und visuell schnell veranschaulicht werden</li> </ul>",
+			"cons": "<ul> <li>Für Unkundige ist es schwierig die Post-Its an der richtigen Stelle zu platzieren.</li> </ul>"
 		}
-	],
-	"icon": [
-		{
-			"home": "<span class='glyphicon glyphicon-home'></span>"
-		}
-	],
-	"lorem": "<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros..</p>"
+	]
 }

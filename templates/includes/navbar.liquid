@@ -1,12 +1,10 @@
-<div class="navbar row navbar-fixed-top" role="navigation">
-  <div class="container">
+<div class="row" role="navigation">
+  <div class="">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle btn-lg" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="glyphicon glyphicon-filter"></span>
       </button>
-      <h2 class="brand"><img width="50" height="50" src="/assets/images/{{global.app.icon}}" alt="{{global.app.name}}"/> <span class="hidden-xs">{{global.app.name}} {{global.app.version}}</h2>
+      <h2 class="brand">{% if global.app.icon %}<img width="50" height="50" src="/assets/images/{{global.app.icon}}" alt="{{global.app.name}}"/>{% endif %} {{global.app.name}} {{global.app.version}}</h2>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
@@ -14,8 +12,8 @@
         {% comment %}<li><a href="#insights">Insights</a></li>{% endcomment %}
         {% comment %}<li><a href="#buy">Kaufen</a></li>{% endcomment %}
         {% comment %}<li><a href="#author">Autor & Kontakt</a></li>{% endcomment %}
-        
-        {{ mixture.sitemap | navigation: mixture.url, 'ul class="nav navbar-nav"', 'li', 'active', 'Home' }}
+
+        <!-- {{ mixture.sitemap | navigation: mixture.url, 'ul class="nav navbar-nav"', 'li', 'active', 'Home' }} -->
         {% comment %}<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -29,6 +27,39 @@
           </ul>
         </li>{% endcomment %}
       </ul>
+      <div class="row">
+        <div class="col-sm-12">
+          {% for filter in global.filters %}
+            {% if forloop.index == 5 %}
+            <h4 class="add-toggle"><span class="addshow glyphicon glyphicon-eye-open"></span><span class="addhide glyphicon glyphicon-eye-close"></span> weitere kriterien <span class="addshow">anzeigen</span><span class="addhide">ausblenden</span></h4>
+            <div class="additional">
+            {% endif %}
+              <h5><a href="#" data-placement="right" data-container="body" data-toggle="popover" class="pop" rel="popover" title="Filter Info" data-content="{{filter.[5]}}"><span class="glyphicon glyphicon-info-sign"></span></a> {{filter.[1]}}</h5>
+              <div class="btn-group btn-group-justified filter-group" id="{{filter.[0]}}">
+                <a data-name="{{filter.[0]}}" type="button"  class="btn btn-primary filter {{filter.[0]}}  active one">Alle </a>
+                <a data-name="{{filter.[0]}}1" type="button" class="btn btn-primary filter {{filter.[0]}}1">{{filter.[2]}}</a>
+                <a data-name="{{filter.[0]}}2" type="button" class="btn btn-primary filter {{filter.[0]}}2">{{filter.[3]}}</a>
+                {% if filter.[4] %}
+                <a data-name="{{filter.[0]}}3" type="button" class="btn btn-primary filter {{filter.[0]}}3">{{filter.[4]}}</a>
+                {% endif %}
+              </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h5><a href="#" data-placement="right" data-container="body" data-toggle="popover" class="pop" rel="popover" title="Kategorie Info" data-content="Die verschiedenen Kreativitätstechniken sind in drei Grundkategorien unterteilt. Assoziative Techniken: Weckt weitere Verknüpfungen und erweitert das Ideenspektrum. Perspektivische Techniken: Holt den Anwender aus seiner gewöhnlichen Sichtweise heraus und erweckt neue Perspektiven. Kombitechniken: Verschiedene Techniken, die nicht eindeutig zugeordnet werden können, eine eigene Logik haben sowie sehr unterschiedliche Aspekte aufgreifen. "><span class="glyphicon glyphicon-info-sign"></span></a> Kategorien</h5>
+              <ul class="filter-group categories">
+                {% for category in global.categories %}
+                    <li id="{{category.[0]}}" class="category {{category.[0]}} active {% if forloop.index == 1 %}{% endif %}"><a data-name="{{filter.[0]}}"><span class="check"><span class="glyphicon glyphicon-ok"></span><!-- <span class="glyphicon glyphicon-remove"></span> --></span> {{category.[1]}} </a></li>
+                {% endfor %}
+              </ul>
+        </div>
+      </div>
+      <div>
+        <a href="#" class="reset"><span class="glyphicon glyphicon-remove"></span> Filter zurücksetzen</a>
+      </div>
     </div><!--/.nav-collapse -->
   </div>
 </div>

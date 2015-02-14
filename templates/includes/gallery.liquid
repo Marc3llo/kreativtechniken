@@ -1,51 +1,54 @@
-<div id="gallery" class="row isin">
-    {% for image in global.images %}
-    <div class="col-xs-6 col-md-4">
-        <a data-toggle="cellobox" href="img{{image.id}}" data-id="img{{image.id}}" class="cb thumbnail">
-          <p>Bild</p>
-          <span class="glyphicon glyphicon-picture"></span>
-          {% comment %}<img src="images/ph.png" style="background-image: url('{{url}}');" alt="{{caption}}">{% endcomment %}
-        </a>
+<div id="gallery" class="row">
+    <div class="holder">
+    {% for item in global.techniques %}
+    <div id="id{{item.id}}" class="item col-xs-12 col-sm-6 col-md-4
+        {% for filter in item.filter %}
+            {{filter.[1]}}
+        {% endfor %}
+        {{item.category}}
+    ">
+        <div data-toggle="cellobox" href="img{{item.id}}" data-id="img{{item.id}}" class="cb">
+            <a class="close">
+                <img src="/assets/images/x.svg" alt="close"/>
+            </a>
+            <h2>{{item.caption}}</h2>
+            <!-- <p>{% for filter in item.filter %} {{filter.[1]}}{% endfor %}</p> -->
+            <div class="details row">
+                <div class="col-md-2">
+                    <h3>Facts</h3>
+                    <ul>
+                        <li><b>Dauer</b>: {{item.facts[0]}} Minuten</li>
+                        <li><b>Anzahl Teilnehmer</b>: {{item.facts[1]}}</li>
+                        <li><b>Moderator</b>: {{item.facts[2]}}</li>
+                        {% if item.facts[3] %}
+                            <li><b>Protokollant</b>: {{item.facts[3]}}</li>
+                        {% endif %}
+                        <li><b>Material</b>: {{item.facts[4]}}</li>
+                    </ul>
+                    <h4>Vorteile</h4>
+                    {{item.pros}}
+                    <h4>Nachteile</h4>
+                    {{item.cons}}
+                </div>
+                <div class="col-md-4">
+                    <h3>Beschreibung</h3>
+                    <p>{{item.description}}</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Vorgehen</h3>
+                    <p>{{item.action}}</p>
+                </div>
+            </div>
+        </div>
     </div>
     {% endfor %}
-    {% for image in global.images %}
-    <div id="img{{image.id}}" class="cellobox fade"  tabindex="-1" role="dialog" aria-hidden="true">
-      <span class="glyphicon glyphicon-picture"></span>
-      <!-- <img src="{{url}}"> -->
     </div>
-    {% endfor %}
+    <div class="notification">
+        <div class="alert alert-warning">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            <span class="text">Bei dieser Filterkombination gibt es keine Resultate, bitte schränke deine Suche weniger ein.</span>
+        </div>
+    </div>
     <div class="backdrop">
     </div>
 </div>
-
-{% block scripts %}
-<script type="text/javascript">
-    $(document).ready(function(){
-      // Simple cellobox by Marcel Hadorn
-      // set default values
-      var id = 'img';
-      var w = '900';
-      var lm = '-450';
-    
-      // trigger the click on a image
-      $('.cb').click(function(){
-        event.preventDefault();
-        // set which image was clicked
-        id = $('#' + $(this).attr("data-id"));
-        // get image width and center it
-        w = id.width();
-        lm = -(w / 2);
-        id.css('margin-left', lm);
-        id.addClass('in');
-        // show backdrop
-        $('.backdrop').show();
-      });
-    
-      $('.backdrop, .cellobox').click(function(){
-        // close image
-        $('.cellobox').removeClass('in');
-        $('.backdrop').hide();
-      });
-    });
-</script>
-{% endblock %}
